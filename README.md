@@ -19,7 +19,7 @@
 
 1. Clone the repository:
 
-git clone https://github.com/pratul20/aurorshield.git
+git clone https://github.com/Pratul-20/auror-shield.git
 cd aurorshield
 Install dependencies:
 npm install

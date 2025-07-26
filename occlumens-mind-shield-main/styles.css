@@ -1,0 +1,466 @@
+/* Occlumens Design System - Magical Harry Potter-inspired cybersecurity theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Magical color palette inspired by Hogwarts */
+  --background: hsl(220, 25%, 6%);
+  --foreground: hsl(45, 100%, 85%);
+  
+  /* Primary - Deep magical blue with gold accents */
+  --primary: hsl(240, 45%, 20%);
+  --primary-foreground: hsl(45, 100%, 85%);
+  --primary-glow: hsl(240, 65%, 35%);
+  
+  /* Secondary - Ravenclaw blue tones */
+  --secondary: hsl(215, 35%, 15%);
+  --secondary-foreground: hsl(210, 40%, 85%);
+  
+  /* Accent - Magical gold */
+  --accent: hsl(45, 85%, 65%);
+  --accent-foreground: hsl(220, 25%, 6%);
+  
+  /* Magical gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(240, 45%, 20%), hsl(240, 65%, 35%));
+  --gradient-magical: linear-gradient(135deg, hsl(240, 45%, 20%), hsl(280, 35%, 25%), hsl(45, 85%, 65%));
+  --gradient-subtle: linear-gradient(180deg, hsl(220, 25%, 6%), hsl(220, 30%, 8%));
+  
+  /* Patronus glow effects */
+  --glow-primary: 0 0 30px hsl(45, 85%, 65%, 0.3);
+  --glow-magical: 0 0 40px hsl(240, 65%, 35%, 0.4);
+  --shadow-elegant: 0 10px 30px -10px hsl(240, 45%, 20%, 0.5);
+  
+  /* Smooth magical transitions */
+  --transition-magical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-glow: all 0.3s ease-out;
+
+  /* Card and UI elements */
+  --card: hsl(220, 30%, 8%);
+  --card-foreground: hsl(210, 40%, 85%);
+  
+  --muted: hsl(220, 25%, 12%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  
+  --border: hsl(220, 25%, 15%);
+  --radius: 0.5rem;
+}
+
+/* House-specific themes */
+.gryffindor-theme {
+  --primary: hsl(0, 70%, 45%);
+  --primary-foreground: hsl(45, 100%, 85%);
+  --primary-glow: hsl(0, 80%, 60%);
+  --accent: hsl(45, 85%, 65%);
+  --accent-foreground: hsl(0, 70%, 45%);
+  --gradient-primary: linear-gradient(135deg, hsl(0, 70%, 45%), hsl(45, 85%, 65%));
+  --gradient-magical: linear-gradient(135deg, hsl(0, 70%, 45%), hsl(0, 80%, 60%), hsl(45, 85%, 65%));
+  --glow-primary: 0 0 30px hsl(0, 80%, 60%, 0.4);
+  --glow-magical: 0 0 40px hsl(0, 70%, 45%, 0.5);
+}
+
+.ravenclaw-theme {
+  --primary: hsl(220, 70%, 40%);
+  --primary-foreground: hsl(45, 100%, 85%);
+  --primary-glow: hsl(220, 80%, 55%);
+  --accent: hsl(200, 85%, 65%);
+  --accent-foreground: hsl(220, 70%, 40%);
+  --gradient-primary: linear-gradient(135deg, hsl(220, 70%, 40%), hsl(200, 85%, 65%));
+  --gradient-magical: linear-gradient(135deg, hsl(220, 70%, 40%), hsl(220, 80%, 55%), hsl(200, 85%, 65%));
+  --glow-primary: 0 0 30px hsl(220, 80%, 55%, 0.4);
+  --glow-magical: 0 0 40px hsl(220, 70%, 40%, 0.5);
+}
+
+.hufflepuff-theme {
+  --primary: hsl(45, 70%, 50%);
+  --primary-foreground: hsl(220, 25%, 6%);
+  --primary-glow: hsl(45, 80%, 65%);
+  --accent: hsl(35, 85%, 60%);
+  --accent-foreground: hsl(220, 25%, 6%);
+  --gradient-primary: linear-gradient(135deg, hsl(45, 70%, 50%), hsl(35, 85%, 60%));
+  --gradient-magical: linear-gradient(135deg, hsl(45, 70%, 50%), hsl(45, 80%, 65%), hsl(35, 85%, 60%));
+  --glow-primary: 0 0 30px hsl(45, 80%, 65%, 0.4);
+  --glow-magical: 0 0 40px hsl(45, 70%, 50%, 0.5);
+}
+
+.slytherin-theme {
+  --primary: hsl(120, 45%, 35%);
+  --primary-foreground: hsl(45, 100%, 85%);
+  --primary-glow: hsl(120, 60%, 50%);
+  --accent: hsl(150, 70%, 55%);
+  --accent-foreground: hsl(120, 45%, 35%);
+  --gradient-primary: linear-gradient(135deg, hsl(120, 45%, 35%), hsl(150, 70%, 55%));
+  --gradient-magical: linear-gradient(135deg, hsl(120, 45%, 35%), hsl(120, 60%, 50%), hsl(150, 70%, 55%));
+  --glow-primary: 0 0 30px hsl(120, 60%, 50%, 0.4);
+  --glow-magical: 0 0 40px hsl(120, 45%, 35%, 0.5);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+/* Utility Classes */
+.min-h-screen { min-height: 100vh; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.w-full { width: 100%; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-7xl { max-width: 80rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.text-center { text-align: center; }
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.leading-relaxed { line-height: 1.625; }
+.rounded-lg { border-radius: 0.5rem; }
+.border { border-width: 1px; }
+.border-2 { border-width: 2px; }
+.cursor-pointer { cursor: pointer; }
+
+/* Flex Utilities */
+.flex { display: flex; }
+.flex-center { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+/* Grid Utilities */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+
+/* Color Utilities */
+.text-accent { color: var(--accent); }
+.text-foreground { color: var(--foreground); }
+.text-muted-foreground { color: var(--muted-foreground); }
+.text-primary-foreground { color: var(--primary-foreground); }
+.text-primary-foreground-90 { color: hsl(from var(--primary-foreground) h s l / 0.9); }
+.text-red-400 { color: hsl(0, 70%, 60%); }
+.text-blue-400 { color: hsl(220, 70%, 60%); }
+.text-yellow-400 { color: hsl(45, 85%, 60%); }
+.text-green-400 { color: hsl(120, 60%, 60%); }
+
+/* Background Utilities */
+.bg-gradient-magical { background: var(--gradient-magical); }
+.bg-gradient-primary { background: var(--gradient-primary); }
+.bg-gradient-subtle { background: var(--gradient-subtle); }
+.bg-card-95 { background: hsl(from var(--card) h s l / 0.95); }
+.backdrop-blur { backdrop-filter: blur(8px); }
+
+/* Border Utilities */
+.border-accent-20 { border-color: hsl(from var(--accent) h s l / 0.2); }
+.border-border { border-color: var(--border); }
+
+/* Effect Utilities */
+.glow-primary { box-shadow: var(--glow-primary); }
+.glow-magical { box-shadow: var(--glow-magical); }
+.shadow-elegant { box-shadow: var(--shadow-elegant); }
+.hover-shadow-elegant:hover { box-shadow: var(--shadow-elegant); }
+.transition-magical { transition: var(--transition-magical); }
+
+/* Text Gradient */
+.text-gradient-magical {
+  background: var(--gradient-magical);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Components */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: var(--transition-magical);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-accent:hover:not(:disabled) {
+  background: hsl(from var(--accent) h s calc(l * 0.9));
+}
+
+.btn-outline {
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.btn-outline:hover {
+  background: var(--muted);
+}
+
+/* Screen Management */
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+.screen-content {
+  display: none;
+}
+
+.screen-content.active {
+  display: block;
+}
+
+/* Selection States */
+.house-card.selected,
+.wizard-type-card.selected {
+  border-color: var(--accent) !important;
+  box-shadow: var(--glow-primary);
+}
+
+/* Icon Sizing */
+.h-6 { height: 1.5rem; }
+.w-6 { width: 1.5rem; }
+.h-8 { height: 2rem; }
+.w-8 { width: 2rem; }
+.h-16 { height: 4rem; }
+.w-16 { width: 4rem; }
+
+/* Navigation Button States */
+.nav-btn.active {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  box-shadow: var(--glow-primary);
+}
+
+.nav-btn {
+  border-color: hsl(from var(--accent) h s l / 0.3);
+  color: var(--accent);
+}
+
+.nav-btn:hover:not(.active) {
+  border-color: hsl(from var(--accent) h s l / 0.6);
+  background: hsl(from var(--accent) h s l / 0.1);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: calc(var(--radius) * 0.5);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid hsl(from var(--accent) h s l / 0.5);
+  color: var(--foreground);
+}
+
+/* Magical Vortex Effect */
+.magical-vortex {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    hsla(from var(--accent) h s l / 0.3) 0%,
+    hsla(from var(--primary-glow) h s l / 0.2) 30%,
+    hsla(from var(--accent) h s l / 0.1) 60%,
+    transparent 100%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  animation: vortex-expand 0.8s ease-out forwards;
+  filter: blur(0.5px);
+}
+
+@keyframes vortex-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.magical-vortex::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    hsla(from var(--accent) h s l / 0.4) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  animation: vortex-inner 0.8s ease-out forwards;
+}
+
+@keyframes vortex-inner {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1) rotate(-90deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5) rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+.magical-vortex::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    hsla(from var(--accent) h s l / 0.6) 0%,
+    hsla(from var(--accent) h s l / 0.3) 40%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  animation: vortex-core 0.8s ease-out forwards;
+}
+
+@keyframes vortex-core {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(0.8) rotate(120deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced hover states for magical interactions */
+.btn:hover,
+.nav-btn:hover,
+.house-card:hover,
+.wizard-type-card:hover,
+.card:hover {
+  position: relative;
+  overflow: visible;
+}
+
+/* Subtle magical shimmer on interactive elements */
+.btn,
+.nav-btn,
+.house-card,
+.wizard-type-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before,
+.nav-btn::before,
+.house-card::before,
+.wizard-type-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsla(from var(--accent) h s l / 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.btn:hover::before,
+.nav-btn:hover::before,
+.house-card:hover::before,
+.wizard-type-card:hover::before {
+  left: 100%;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .grid-cols-2 { grid-template-columns: 1fr; }
+  .text-4xl { font-size: 2rem; }
+  .text-3xl { font-size: 1.75rem; }
+  
+  .magical-vortex {
+    width: 60px;
+    height: 60px;
+  }
+}

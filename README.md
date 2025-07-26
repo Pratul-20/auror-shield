@@ -14,6 +14,22 @@
 ---
 
 ## 🚀 Getting Started
+✅ Prerequisites
+Make sure you have the following installed:
+
+Node.js (v18 or later recommended)
+npm (comes with Node.js)
+
+📁 Project Structure
+
+├── public/           # Static assets
+├── src/              # Main source code
+│   ├── components/   # Reusable UI components
+│   ├── pages/        # App routes/pages
+│   └── main.tsx      # App entry
+├── .eslintrc         # Linter config
+├── vite.config.ts    # Vite config
+└── package.json      # Project metadata & scripts
 
 ### 🔧 Installation
 
